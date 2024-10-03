@@ -1,0 +1,14 @@
+version: '3'
+services:
+  sms_runner:
+    build: .
+    container_name: "sms_runner"
+    network_mode: "host"
+    restart: always
+    command: python -u main.py
+    privileged: true
+    devices:
+      - /dev/:/dev/
+    volumes:
+      - "/etc/timezone:/etc/timezone:ro"
+      - "/etc/localtime:/etc/localtime:ro"
